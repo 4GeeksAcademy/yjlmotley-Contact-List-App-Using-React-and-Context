@@ -60,7 +60,7 @@ export const AddContact = () => {
 				<div className="form-group">
 					<label>Phone</label>
 					<input
-						type="phone"
+						type="text"
 						name="phone"
 						className="form-control"
 						placeholder="Enter phone"
@@ -86,7 +86,7 @@ export const AddContact = () => {
 				{/* If contact.id doesn't exist, Add Contact button and vice versa*/}
 				<button
 					type="submit"
-					className="btn btn-primary form-control mt-2">
+					className="btn btn-primary form-control mt-3">
 					{contactData.id ? "Update Contact" : "save"}
 				</button>
 			</form>

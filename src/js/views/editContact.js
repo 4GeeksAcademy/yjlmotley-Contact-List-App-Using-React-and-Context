@@ -53,6 +53,7 @@ export const EditContact = () => {
                     <input
                         type="text"
                         name="full_name"
+                        className="form-control"
                         value={contact.full_name}
                         onChange={handleChange}
                         required
@@ -63,6 +64,7 @@ export const EditContact = () => {
                     <input
                         type="email"
                         name="email"
+                        className="form-control"
                         value={contact.email}
                         onChange={handleChange}
                         required
@@ -73,6 +75,7 @@ export const EditContact = () => {
                     <input
                         type="text"
                         name="address"
+                        className="form-control"
                         value={contact.address}
                         onChange={handleChange}
                         required
@@ -83,6 +86,7 @@ export const EditContact = () => {
                     <input
                         type="text"
                         name="phone"
+                        className="form-control"
                         value={contact.phone}
                         onChange={handleChange}
                         required
@@ -90,18 +94,17 @@ export const EditContact = () => {
                 </div>
                     <Link to={"/"}>
                         <button
-                            className="btn btn-primary form-control">
+                            className="btn btn-primary form-control mt-3">
                             Cancel
                         </button>
                     </Link>
                 <button 
                     type="submit"
-                    className="btn btn-primary form-control">
+                    className="btn btn-primary form-control my-2">
                     {/* if contact.id exists, Update Contact button and vice versa*/}
                     {contact.id ? "Update Contact" : "save"}
                 </button>
             </form>
-            <a href="/">or get back to contacts</a>
         </div>
     );
 };

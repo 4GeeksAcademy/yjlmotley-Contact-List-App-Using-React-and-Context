@@ -21,7 +21,7 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/addContact" element={<AddContact />} />
-						<Route path="/editContact/:id" elements={<EditContact />} />
+						<Route path="/editContact/:id" element={<EditContact />} />
 						<Route 
 							path="*" 
 							element={
