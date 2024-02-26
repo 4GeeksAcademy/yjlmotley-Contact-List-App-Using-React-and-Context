@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "SECOND",
 					background: "white",
 					initial: "white"
-				}
+				},
 			],
 			contacts: [],
 		},
@@ -61,10 +61,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			deleteContacts: (id) => {
 				const url = `https://playground.4geeks.com/apis/fake/contact/${id}`;
 				const request = {
-				method: "DELETE",
-				headers: {
-					"Content-Type": "application/json",
-				},
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
 				};
 
 				fetch(url, request)
