@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ContactCard from "./contactCard";
+import ContactCard from "../component/contactCard";
 import "../../styles/home.css";
 
 
