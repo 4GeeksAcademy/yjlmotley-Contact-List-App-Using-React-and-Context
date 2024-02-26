@@ -19,6 +19,7 @@ export const Home = () => {
 				id="contacts"
 				className="panel-collapse collapse show mb-5"
 				aria-expanded="true">
+				<h1>TESTTTTTTTTTTTTTT</h1>
 				<ul className="list-group pull-down" id="contact-list">
 					{store.contacts.map((contact, index) => {
 						<ContactCard
@@ -27,6 +28,9 @@ export const Home = () => {
 							className="contact-card"
 						/>
 					})}
+					<h1>TESTTTTTTTTTTTTTT</h1>
+					<h1>TESTTTTTTTTTTTTTT</h1>
+					<h1>TESTTTTTTTTTTTTTT</h1>
 				</ul>
 			</div>
 		</div>
