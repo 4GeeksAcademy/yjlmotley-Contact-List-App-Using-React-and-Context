@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import Modal from "./modal";
 
 import exampleImage from "../../img/icons_user2-256.png";
 
@@ -8,6 +9,20 @@ import exampleImage from "../../img/icons_user2-256.png";
 const ContactCard = ({ contact }) => {
 	const { full_name, email, address, phone } = contact;
 	const { actions } = useContext(Context);
+	const [showModal, setShowModal] = useState(false);
+
+    const handleDelete = () => {
+        setShowModal(true);
+    };
+
+    const confirmDelete = () => {
+        actions.deleteContacts(contact.id);
+        setShowModal(false);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };	
 
 	return (
 		<li className="list-group-item">
@@ -27,13 +42,12 @@ const ContactCard = ({ contact }) => {
 								<i className="fas fa-pencil-alt mr-3"></i>
 							</button>
 						</Link>
-						<button 
-							className="btn"
-							onClick={() => actions.deleteContacts(contact.id)}
-						>
+						<button className="btn" id="deleteButton" onClick={handleDelete}>
 							<i className="fas fa-trash-alt"></i>
 						</button>
-					</div>
+						{showModal && <Modal closeModal={closeModal} confirmDelete={confirmDelete} />}
+					</div>			
+					
 					<div className="text-start">
 						<label className="name lead fw-bold">{full_name}</label>
 						<br />
@@ -58,7 +72,7 @@ const ContactCard = ({ contact }) => {
 						</span>
 					</div>
 				</div>
-			</div>
+			</div>					
 		</li>
 	);
 };
