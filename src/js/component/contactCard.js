@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import exampleImage from "../../img/icons_user2-256.png";
 
 
-const ContactCard = () => {
+const ContactCard = ({ contact }) => {
 	const { full_name, email, address, phone } = contact;
 	const { actions } = useContext(Context);
 
@@ -35,26 +35,26 @@ const ContactCard = () => {
 						</button>
 					</div>
 					<div className="text-start">
-						<label className="name lead">Mike Anamendolla {full_name}</label>
+						<label className="name lead fw-bold">{full_name}</label>
 						<br />
-						<i className="fas fa-map-marker-alt text-muted mr-3"></i>
-						<span className="text-muted">5842 Hillcrest Rd {address}</span>
+						<i className="fas fa-map-marker-alt text-muted me-3"></i>
+						<span className="text-muted">{address}</span>
 						<br />
 						<span
-							className="fa fa-phone fa-fw text-muted mr-3"
+							className="fa fa-phone fa-fw text-muted me-2"
 							data-toggle="tooltip"
 							title=""
-							data-original-title="(870) 288-4149"></span>
-						<span className="text-muted small">(870) 288-4149 {phone}</span>
+							data-original-title=""></span>
+						<span className="text-muted small">{phone}</span>
 						<br />
 						<span
-							className="fa fa-envelope fa-fw text-muted mr-3"
+							className="fa fa-envelope fa-fw text-muted me-2"
 							data-toggle="tooltip"
 							data-original-title=""
 							title="">
 						</span>
 						<span className="text-muted small text-truncate">
-							mike.ana@example.com {email}
+							{email}
 						</span>
 					</div>
 				</div>
