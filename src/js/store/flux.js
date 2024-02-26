@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addContacts: (contactData) => {
-				const url = "https://playground/4geeks.com/apis/fake/contact/";
+				const url = "https://playground.4geeks.com/apis/fake/contact/";
 				const request = {
 					method: "POST",
 					headers: {
