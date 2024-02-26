@@ -39,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const request = {
 					method: "POST",
 					headers: {
-						"Content-Type": "application.json",
+						"Content-Type": "application/json",
 					},
 					body: JSON.stringify(contactData),
 				};
