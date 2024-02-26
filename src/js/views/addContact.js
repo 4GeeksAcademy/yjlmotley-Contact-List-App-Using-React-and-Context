@@ -86,7 +86,7 @@ export const AddContact = () => {
 				{/* If contact.id doesn't exist, Add Contact button and vice versa*/}
 				<button
 					type="submit"
-					className="btn btn-primary form-control">
+					className="btn btn-primary form-control mt-2">
 					{contactData.id ? "Update Contact" : "save"}
 				</button>
 			</form>

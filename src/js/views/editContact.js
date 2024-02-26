@@ -53,7 +53,6 @@ export const EditContact = () => {
                     <input
                         type="text"
                         name="full_name"
-                        className="form-control"
                         value={contact.full_name}
                         onChange={handleChange}
                         required
@@ -64,7 +63,6 @@ export const EditContact = () => {
                     <input
                         type="email"
                         name="email"
-                        className="form-control"
                         value={contact.email}
                         onChange={handleChange}
                         required
@@ -75,7 +73,6 @@ export const EditContact = () => {
                     <input
                         type="text"
                         name="address"
-                        className="form-control"
                         value={contact.address}
                         onChange={handleChange}
                         required
@@ -86,7 +83,6 @@ export const EditContact = () => {
                     <input
                         type="phone"
                         name="phone"
-                        className="form-control"
                         value={contact.phone}
                         onChange={handleChange}
                         required
