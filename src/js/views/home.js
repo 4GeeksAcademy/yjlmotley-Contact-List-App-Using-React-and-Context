@@ -1,26 +1,25 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import ContactCard from "./contactCard";
+import { Link } from "react-router-dom";
+import ContactCard from "./contactCard";
 import "../../styles/home.css";
 
 
 export const Home = () => (
 	<div className="container pb-1">
 		<div className="d-flex justify-content-end my-3">
-			{/* <Link to="/add"> */}
+			<Link to="/add">
 				<button className="btn btn-success">Add new contact</button>
-			{/* </Link> */}
+			</Link>
 		</div>
 		<div
 			id="contacts"
 			className="panel-collapse collapse show mb-5"
 			aria-expanded="true">
 			<ul className="list-group pull-down" id="contact-list">
-				{/* <ContactCard />
 				<ContactCard />
 				<ContactCard />
-				<ContactCard /> */}
-				<p>TEST</p> {/* DELETE THIS LINE LATER*/}
+				<ContactCard />
+				<ContactCard />
 			</ul>
 		</div>
 	</div>
