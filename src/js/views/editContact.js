@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
+
 export const EditContact = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
@@ -23,13 +24,13 @@ export const EditContact = () => {
             (c) => c.id === parseInt(params.id)
         );
 
-        // if the contact is found, updates the local status with their info
+        // If the contact is found, updates the local status with their info
         if (contactData) {
             setContact(contactData);
         }
     }, [params.id, store.contacts]);
 
-  // event handler for input field changes
+    // Event handler for input field changes
     const handleChange = (e) => {
         setContact({ ...contact, [e.target.name]: e.target.value });
     };
@@ -43,7 +44,7 @@ export const EditContact = () => {
         navigate("/");
     };
 
-    // edit form
+    // To edit form
     return (
         <div className="container">
             <h1 className="text-center mt-5">Update Contact</h1> 
@@ -101,7 +102,6 @@ export const EditContact = () => {
                 <button 
                     type="submit"
                     className="btn btn-primary form-control my-2">
-                    {/* if contact.id exists, Update Contact button and vice versa*/}
                     {contact.id ? "Update Contact" : "save"}
                 </button>
             </form>
@@ -109,9 +109,10 @@ export const EditContact = () => {
     );
 };
 
-// props for the edit contact component
+// Props for the edit contact component
 EditContact.propTypes = {
   match: PropTypes.object,
 };
+
 
 export default EditContact;

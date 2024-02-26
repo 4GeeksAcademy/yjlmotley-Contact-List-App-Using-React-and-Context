@@ -26,7 +26,6 @@ export const AddContact = () => {
 		}
 	};
 
-
 	return (
 		<div className="container">
 			<h1 className="text-center mt-5">Add a new contact</h1>
@@ -38,9 +37,7 @@ export const AddContact = () => {
 						name="full_name"
 						className="form-control"
 						placeholder="Full Name"
-						onChange={(e) => {
-							handleChange(e);
-						}}
+						onChange={(e) => { handleChange(e); }}
 						required
 					/>
 				</div>
@@ -51,10 +48,8 @@ export const AddContact = () => {
 						name="email"
 						className="form-control"
 						placeholder="Enter email"
-						onChange={(e) => {
-							handleChange(e);
-						  }}
-						  required
+						onChange={(e) => { handleChange(e); }}
+						required
 					/>
 				</div>
 				<div className="form-group">
@@ -64,10 +59,8 @@ export const AddContact = () => {
 						name="phone"
 						className="form-control"
 						placeholder="Enter phone"
-						onChange={(e) => {
-							handleChange(e);
-						  }}
-						  required
+						onChange={(e) => { handleChange(e); }}
+						required
 					/>
 				</div>
 				<div className="form-group">
@@ -77,13 +70,10 @@ export const AddContact = () => {
 						name="address"
 						className="form-control"
 						placeholder="Enter address"
-						onChange={(e) => {
-							handleChange(e);
-						  }}
-						  required
+						onChange={(e) => { handleChange(e); }}
+						required
 					/>
 				</div>
-				{/* If contact.id doesn't exist, Add Contact button and vice versa*/}
 				<button
 					type="submit"
 					className="btn btn-primary form-control mt-3">

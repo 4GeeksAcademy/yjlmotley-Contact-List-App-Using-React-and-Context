@@ -23,4 +23,5 @@ const Modal = ({ closeModal, confirmDelete }) => {
     );
 };
 
+
 export default Modal;
