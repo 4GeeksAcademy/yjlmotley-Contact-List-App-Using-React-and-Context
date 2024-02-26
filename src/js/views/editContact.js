@@ -81,7 +81,7 @@ export const EditContact = () => {
                 <div className="form-group">
                     <label>Phone</label>
                     <input
-                        type="phone"
+                        type="text"
                         name="phone"
                         value={contact.phone}
                         onChange={handleChange}
@@ -110,3 +110,5 @@ export const EditContact = () => {
 EditContact.propTypes = {
   match: PropTypes.object,
 };
+
+export default EditContact;
