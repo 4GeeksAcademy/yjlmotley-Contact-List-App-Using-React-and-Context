@@ -1,109 +1,56 @@
-const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				},
-			],
-			contacts: [],
-		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			getContacts: () => {
-				fetch(
-					"https://playground.4geeks.com/apis/fake/contact/agenda/yjlmotley"
-				)
-					.then((resp) => {
-						if (!resp.ok) throw Error(resp.statusText);
-						return resp.json();
-					})
-					.then((data) => {
-						// Set the retrieved contacts data in the store
-						setStore({ contacts: data });
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-			},
+const getState = ({ getStore, setStore }) => {
+    const handleResponse = (response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+    };
 
-			addContacts: (contactData) => {
-				const url = "https://playground.4geeks.com/apis/fake/contact/";
-				const request = {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(contactData),
-				};
+    // Centralized function to refresh contacts
+    const refreshContacts = () => {
+        fetch("https://playground.4geeks.com/apis/fake/contact/agenda/yjlmotley")
+            .then(handleResponse)
+            .then((data) => setStore({ contacts: data }))
+            .catch((error) => console.error('Fetching contacts failed:', error));
+    };
 
-				fetch(url, request)
-					.then((resp) => {
-						if (!resp.ok) throw Error(resp.statusText);
-						return resp.json();
-					})
-					.then((data) => {
-						console.log(data);
-						getActions().getContacts();
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-			},
+    return {
+        store: {
+            contacts: [],
+        },
+        actions: {
+            getContacts: refreshContacts, 
 
-			deleteContacts: (id) => {
-				const url = `https://playground.4geeks.com/apis/fake/contact/${id}`;
-				const request = {
-					method: "DELETE",
-					headers: {
-						"Content-Type": "application/json",
-					},
-				};
+            addContacts: (contactData) => {
+                fetch("https://playground.4geeks.com/apis/fake/contact/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(contactData),
+                })
+                .then(handleResponse)
+                .then(() => refreshContacts()) 
+                .catch((error) => console.error('Adding contact failed:', error));
+            },
 
-				fetch(url, request)
-					.then((resp) => {
-						if (!resp.ok) throw Error(resp.statusText);
-						return resp.json();
-					})
-					.then((data) => {
-						console.log(data);
-						getActions().getContacts();
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-			},
+            deleteContacts: (id) => {
+                fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+                    method: "DELETE",
+                })
+                .then(handleResponse)
+                .then(() => refreshContacts()) 
+                .catch((error) => console.error('Deleting contact failed:', error));
+            },
 
-			editContact: (id, contactData) => {
-				fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
-					method: "PUT",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(contactData),
-				})
-					.then((resp) => {
-						if (!resp.ok) throw Error(resp.statusText);
-						return resp.json();
-					})
-					.then((data) => {
-						console.log(data);
-						getActions().getContacts();
-					})
-					.catch((error) => {
-						console.error("Error", error);
-					});
-			},
-		},
-	};
+            editContact: (id, contactData) => {
+                fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(contactData),
+                })
+                .then(handleResponse)
+                .then(() => refreshContacts()) 
+                .catch((error) => console.error('Editing contact failed:', error));
+            },
+        },
+    };
 };
-
 
 export default getState;
